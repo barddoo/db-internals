@@ -32,9 +32,9 @@ replacement, and write-back.
 | 6   | Durability: WAL and recovery | `src/06-wal/`      |
 | 7   | Query planning               | `src/07-planner/`  |
 
-The code is the only thing this repo publishes. Drafts live next to their
-code in `src/articles/`, one `NN-<same-name>.md` per post, and are gitignored;
-the published copy lives on Substack.
+The code is the only thing this repo publishes. Drafts live locally, next to
+the code but outside version control (`src/articles/`, gitignored), and the
+published copy lives on Substack.
 
 ## Layout
 
@@ -44,8 +44,6 @@ db-internals/
 ├── build.zig.zon
 └── src/
     ├── root.zig                     # module root; imports every article dir
-    ├── articles/                    # local drafts (gitignored, not published)
-    │   └── 01-buffer-manager.md
     └── 01-buffer-manager/
         ├── slotted_page.zig         # page format: header, slots, records
         ├── disk_manager.zig         # FileDisk: file-backed page store
@@ -72,9 +70,9 @@ Requires Zig 0.17.
 
 ## Conventions
 
-- **One post, one directory, one draft.** `src/01-buffer-manager/` holds the
-  code, `src/articles/01-buffer-manager.md` holds the draft. Names match on
-  purpose, so the code is findable from the post and vice versa.
+- **One post, one directory.** `src/01-buffer-manager/` holds the code and its
+  implementation notes; the draft is kept locally under `src/articles/` with
+  the same name and is never committed.
 - **Numbers are append-only.** A post written later always takes the next
   number, and existing directories are never renamed or renumbered. Published
   posts link to pinned commits, so moving a path breaks live links.

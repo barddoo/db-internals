@@ -4,9 +4,8 @@ A basic page cache with slotted pages. Pages live on disk, the buffer manager
 keeps a bounded number of them in memory, and callers pin/unpin pages while
 using them.
 
-This is the code for post 1 of the series. The draft lives next to the code at
-[`src/articles/01-buffer-manager.md`](../articles/01-buffer-manager.md) and is
-not committed; only this code is published.
+This is the code for post 1 of the series. The draft is kept locally (same
+name, under `src/articles/`, never committed); only this code is published.
 
 ## Files
 
